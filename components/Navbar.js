@@ -11,10 +11,10 @@ const Navbar = () => {
     return (
         <nav className='bg-[#002244] text-white flex justify-between h-16 items-center px-7'>
             <div className="logo font-bold text-lg flex justify-center items-center gap-3">
-                <span>
+                <Link href="/" className="logo font-bold text-lg flex justify-center items-center gap-3">
                     <img src="drink.gif" alt="GetMeaDrink Logo" width={55} className='rounded-2xl' />
-                </span> 
                 GetMeaDrink
+                </Link> 
             </div>
 
             <div className='flex items-center gap-3'>
@@ -23,11 +23,13 @@ const Navbar = () => {
                     <div className="relative inline-block text-left">
                         <button
                             id="dropdownDefaultButton"
-                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)} onBlur={() => {
+                              setIsDropdownOpen(false);
+                            }}
                             className="inline-flex items-center justify-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
                             type="button"
                         >
-                            Menu
+                            Welcome {session.user.name}
                             <svg
                                 className={`w-4 h-4 ms-1.5 -me-0.5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
                                 aria-hidden="true"
@@ -59,14 +61,10 @@ const Navbar = () => {
                                             Dashboard
                                         </Link>
                                     </li>
+                                    
                                     <li>
-                                        <Link href="/settings" className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded">
-                                            Settings
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/earnings" className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded">
-                                            Earnings
+                                        <Link href="/yourpage" className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded">
+                                            your Page
                                         </Link>
                                     </li>
                                     <li>
