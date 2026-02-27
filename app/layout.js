@@ -29,11 +29,14 @@ export default function RootLayout({ children }) {
           <SessionWrapper>
 
         <Navbar />
-        <div className="min-h-[85.8vh] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-size-[20px_20px] text-white">
+        <div className="min-h-[90vh] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-size-[20px_20px] text-white">
           {children}
 
-        </div>
+        <div className="mt-16">
+          
         <Footer />
+        </div>
+        </div>
           </SessionWrapper>
       </body>
     </html>

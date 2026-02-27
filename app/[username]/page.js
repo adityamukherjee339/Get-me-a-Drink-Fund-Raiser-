@@ -26,17 +26,36 @@ const username = async ({ params }) => {
                 <div className="payment flex gap-3 w-[80%]">
 
                     <div className="supporters bg-slate-900 w-1/2 rounded-2xl p-3">
-                    <h1 className='font-bold p-3 text-2xl'>Supporters:-</h1>
-                        <ul className='p-2 flex flex-col gap-1.5'>
-                            <li>Anurag donated $30 with a message ""</li>
-                            <li>Anurag donated $30 with a message ""</li>
-                            <li>Anurag donated $30 with a message ""</li>
-                            <li>Anurag donated $30 with a message ""</li>
+                        <h1 className='font-bold p-3 text-2xl'>Supporters:-</h1>
+                        <ul className='p-2 flex gap-1.5'>
+                            <li className=' flex items-center'>
+                                <img src="avatar.gif" alt="" width={30} /><span>Anurag donated</span> <span className='font-bold'>&nbsp;$30 </span>&nbsp; with a message "I support you bro. Lots of ❤️"
+                            </li>
+
                         </ul>
 
                     </div>
                     <div className="makePayment  bg-slate-900 w-1/2 rounded-2xl p-3">
-<button>Pay $10</button>
+                        <h1 className='text-2xl font-bold my-5'>Make a Payment</h1>
+                        <div className="flex flex-col gap-2">
+
+                            <input type="text" className='w-full rounded-lg bg-slate-800 placeholder:text-slate-400 p-2' placeholder="Enter Amount" />
+
+                            <input type="text" className='w-full rounded-lg bg-slate-800 placeholder:text-slate-400 p-2' placeholder="Enter Name" />
+                            <input type="text" className='w-full rounded-lg bg-slate-800 placeholder:text-slate-400 p-2' placeholder="Enter Message" />
+
+                            <button className='bg-green-500 px-2 py-2 rounded-lg font-bold'>Donate</button>
+                        </div>
+
+                        <div className='mt-3 flex gap-3'>
+                            {/* Or choose from these amounts */}
+
+                            <button className="bg-gradient-to-br from-green-400 to-blue-600 text-white hover:bg-gradient-to-bl focus:ring-green-200 dark:focus:ring-green-800 p-3 rounded-lg">Pay $10</button>
+                            <button className="bg-gradient-to-br from-green-400 to-blue-600 text-white hover:bg-gradient-to-bl focus:ring-green-200 dark:focus:ring-green-800 p-3 rounded-lg">Pay $20</button>
+                            <button className="bg-gradient-to-br from-green-400 to-blue-600 text-white hover:bg-gradient-to-bl focus:ring-green-200 dark:focus:ring-green-800 p-3 rounded-lg">Pay $30</button>
+
+
+                        </div>
 
                     </div>
                 </div>
