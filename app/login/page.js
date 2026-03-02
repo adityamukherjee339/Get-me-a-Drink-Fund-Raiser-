@@ -1,15 +1,19 @@
 "use client"
-import React from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import React, { useEffect } from 'react';
+import { useSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
     const { data: session } = useSession();
-    if (session) {
-        const router = useRouter();
-        router.push("/dashboard");
-        return null;
-    }
+    const router = useRouter();
+
+    useEffect(() => {
+        if (session) {
+            router.push("/dashboard");
+        }
+    }, [session, router]);
+
+    if (session) return null;
 
     return (
         <div>
@@ -21,6 +25,7 @@ const Login = () => {
 
                 {/* Google Button */}
                 <button
+                    onClick={() => signIn("google")}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="-0.5 0 48 48" version="1.1">
@@ -48,6 +53,7 @@ const Login = () => {
 
                 {/* LinkedIn Button */}
                 <button
+                    onClick={() => signIn("linkedin")}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 -2 44 44" version="1.1">
@@ -63,6 +69,7 @@ const Login = () => {
 
                 {/* Twitter Button */}
                 <button
+                    onClick={() => signIn("twitter")}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 -4 48 48" version="1.1">
@@ -79,6 +86,7 @@ const Login = () => {
 
                 {/* Facebook Button */}
                 <button
+                    onClick={() => signIn("facebook")}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 48 48" version="1.1">
@@ -94,7 +102,7 @@ const Login = () => {
                 </button>
 
                 {/* GitHub Button */}
-                <button onClick={()=>{signIn("github")}}
+                <button onClick={() => { signIn("github") }}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 73 73" version="1.1">
@@ -114,6 +122,7 @@ const Login = () => {
 
                 {/* Apple Button */}
                 <button
+                    onClick={() => signIn("apple")}
                     className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs w-full px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="-1.5 0 20 20" version="1.1">

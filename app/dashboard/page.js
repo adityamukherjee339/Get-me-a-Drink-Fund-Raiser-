@@ -1,14 +1,17 @@
 "use client"
-import React from 'react'
-import { useSession, signOut, signIn } from 'next-auth/react';
+import React, { useEffect } from 'react'
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const Dashboard = () => {
-    const { data: session } = useSession();
-        if (!session) {
-            const router = useRouter();
-            router.push("/login");
-        }
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, router]);
   return (
     <div className='min-h-[80vh] flex justify-center items-center flex-col gap-3'>
       <div className='gap-3 flex flex-col'>
@@ -37,9 +40,9 @@ const Dashboard = () => {
       </div>
       <div className='gap-3 flex flex-col'>
 
-      <button className='bg-green-500 px-2 py-2 rounded-lg font-bold w-3xl'>Save</button>
+        <button className='bg-green-500 px-2 py-2 rounded-lg font-bold w-3xl'>Save</button>
       </div>
-      
+
     </div>
   )
 }

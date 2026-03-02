@@ -13,8 +13,8 @@ const Navbar = () => {
             <div className="logo font-bold text-lg flex justify-center items-center gap-3">
                 <Link href="/" className="logo font-bold text-lg flex justify-center items-center gap-3">
                     <img src="drink.gif" alt="GetMeaDrink Logo" width={55} className='rounded-2xl' />
-                GetMeaDrink
-                </Link> 
+                    GetMeaDrink
+                </Link>
             </div>
 
             <div className='flex items-center gap-3'>
@@ -24,7 +24,7 @@ const Navbar = () => {
                         <button
                             id="dropdownDefaultButton"
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)} onBlur={() => {
-                              setIsDropdownOpen(false);
+                                setIsDropdownOpen(false);
                             }}
                             className="inline-flex items-center justify-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
                             type="button"
@@ -61,7 +61,7 @@ const Navbar = () => {
                                             Dashboard
                                         </Link>
                                     </li>
-                                    
+
                                     <li>
                                         <Link href="/yourpage" className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded">
                                             your Page
@@ -69,7 +69,7 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         {/* Changed this to a button to trigger the NextAuth signOut */}
-                                        <button 
+                                        <button
                                             onClick={() => signOut()}
                                             className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded text-left"
                                         >
@@ -82,18 +82,9 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {/* Standalone Dashboard Button */}
-                {session && (
-                    <Link href={"/dashboard"}>
-                        <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5 rounded-2xl">
-                            Dashboard
-                        </button>
-                    </Link>
-                )}
-
                 {/* Standalone Logout Button */}
                 {session && (
-                    <button type="button" onClick={() => signOut()} className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5 rounded-2xl">
+                    <button type="button" onClick={() => signOut()} className="text-white bg-linear-to-br from-purple-600 to-blue-500 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5 rounded-2xl">
                         Logout
                     </button>
                 )}
@@ -101,7 +92,7 @@ const Navbar = () => {
                 {/* Login Button (when logged out) */}
                 {!session && (
                     <Link href={"/login"}>
-                        <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5 rounded-2xl">
+                        <button type="button" className="text-white bg-linear-to-br from-purple-600 to-blue-500 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5 rounded-2xl">
                             Login
                         </button>
                     </Link>
