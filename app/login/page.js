@@ -17,11 +17,11 @@ const Login = () => {
 
     return (
         <div>
-            <h2 className='text-white font-bold text-3xl py-14 container mx-auto text-center'>
+            <h2 className='text-white font-bold text-2xl sm:text-3xl py-10 sm:py-14 container mx-auto text-center px-4'>
                 Login/Signup to Get your fans to support you
             </h2>
 
-            <div className="flex flex-col gap-2 min-h-screen p-10 items-center">
+            <div className="flex flex-col gap-3 min-h-screen p-6 sm:p-10 items-center">
 
                 {/* Google Button */}
                 <button
